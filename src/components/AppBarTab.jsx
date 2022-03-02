@@ -1,4 +1,5 @@
-import { Pressable, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
+import { Link } from 'react-router-native';
 import theme from '../theme';
 import Subheading from './Subheading';
 
@@ -11,11 +12,11 @@ const styles = StyleSheet.create({
   },
 });
 
-const AppBarTab = ({ children }) => {
+const AppBarTab = ({ to, children }) => {
   return (
-    <Pressable style={styles.container}>
+    <Link to={to} style={styles.container}>
       <Subheading style={styles.text}>{children}</Subheading>
-    </Pressable>
+    </Link>
   );
 };
 
