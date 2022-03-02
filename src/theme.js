@@ -1,11 +1,12 @@
 const theme = {
   colors: {
-    textPrimary: '#24292e',
-    textSecondary: '#586069',
+    textPrimary: '#fff',
+    textSecondary: '#949D9D',
     textAppBar: '#fff',
-    primary: '#0366d6',
-    bgPrimary: '#fff',
-    bgAppBar: '#24292e',
+    primary: '#6e02c9',
+    bgPrimary: '#161925',
+    bgSecondary: '#181c28',
+    bgAppBar: '#0c0e14',
     separator: '#e1e5e8',
   },
   fontSizes: {
