@@ -8,6 +8,7 @@ const theme = {
     bgSecondary: '#181c28',
     bgAppBar: '#0c0e14',
     separator: '#e1e5e8',
+    error: '#a10000',
   },
   fontSizes: {
     body: 14,
