@@ -1,6 +1,6 @@
 import { View, StyleSheet } from 'react-native';
-import theme from '../theme';
-import Text from './Text';
+import theme from '../../theme';
+import { Text } from '../shared';
 
 const styles = StyleSheet.create({
   container: {
@@ -11,12 +11,10 @@ const styles = StyleSheet.create({
   },
 });
 
-const Chip = ({ label }) => {
+export const Chip = ({ label }) => {
   return (
     <View style={styles.container}>
       <Text>{label}</Text>
     </View>
   );
 };
-
-export default Chip;

@@ -1,5 +1,6 @@
 import { StyleSheet, View } from 'react-native';
-import Text from './Text';
+import formatStat from '../../utils/formatStats';
+import { Text } from '../shared';
 
 const styles = StyleSheet.create({
   container: {
@@ -8,10 +9,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const formatStat = (stat) =>
-  stat >= 1000 ? `${Math.round(stat / 100) / 10}k` : stat;
-
-const Stat = ({ label, stat }) => {
+export const Stat = ({ label, stat }) => {
   return (
     <View style={styles.container}>
       <Text fontWeight="bold">{formatStat(stat)}</Text>
@@ -19,5 +17,3 @@ const Stat = ({ label, stat }) => {
     </View>
   );
 };
-
-export default Stat;

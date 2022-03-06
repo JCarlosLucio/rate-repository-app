@@ -1,9 +1,9 @@
 import { Formik } from 'formik';
 import { Pressable, StyleSheet, View } from 'react-native';
 import * as yup from 'yup';
-import theme from '../theme';
-import FormikTextInput from './FormikTextInput';
-import Subheading from './Subheading';
+import theme from '../../theme';
+import { FormikTextInput } from './FormikTextInput';
+import { Subheading } from '../shared';
 
 const styles = StyleSheet.create({
   container: {
@@ -23,7 +23,7 @@ const validationSchema = yup.object().shape({
   password: yup.string().required('Password is required'),
 });
 
-const SignIn = () => {
+export const SignIn = () => {
   return (
     <View style={styles.container}>
       <Formik
@@ -50,4 +50,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+// export default SignIn;

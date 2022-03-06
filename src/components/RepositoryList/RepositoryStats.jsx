@@ -1,5 +1,5 @@
 import { StyleSheet, View } from 'react-native';
-import Stat from './Stat';
+import { Stat } from './Stat';
 
 const styles = StyleSheet.create({
   stats: {
@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const RepositoryStats = ({ repo }) => {
+export const RepositoryStats = ({ repo }) => {
   return (
     <View style={styles.stats}>
       <Stat label="Stars" stat={repo.stargazersCount} />
@@ -19,5 +19,3 @@ const RepositoryStats = ({ repo }) => {
     </View>
   );
 };
-
-export default RepositoryStats;

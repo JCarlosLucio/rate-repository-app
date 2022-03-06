@@ -1,7 +1,7 @@
 import { View, StyleSheet } from 'react-native';
-import theme from '../theme';
-import RepositoryInfo from './RepositoryInfo';
-import RepositoryStats from './RepositoryStats';
+import theme from '../../theme';
+import { RepositoryInfo } from './RepositoryInfo';
+import { RepositoryStats } from './RepositoryStats';
 
 const styles = StyleSheet.create({
   container: {
@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const RepositoryItem = ({ item }) => {
+export const RepositoryItem = ({ item }) => {
   return (
     <View style={styles.container}>
       <RepositoryInfo repo={item} />
@@ -18,5 +18,3 @@ const RepositoryItem = ({ item }) => {
     </View>
   );
 };
-
-export default RepositoryItem;

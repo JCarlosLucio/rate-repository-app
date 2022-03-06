@@ -1,7 +1,6 @@
 import { Image, StyleSheet, View } from 'react-native';
-import Chip from './Chip';
-import Subheading from './Subheading';
-import Text from './Text';
+import { Chip } from './Chip';
+import { Subheading, Text } from '../shared';
 
 const styles = StyleSheet.create({
   avatar: {
@@ -25,7 +24,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const RepositoryInfo = ({ repo }) => {
+export const RepositoryInfo = ({ repo }) => {
   return (
     <View style={styles.info}>
       <Image style={styles.avatar} source={{ uri: repo.ownerAvatarUrl }} />
@@ -39,5 +38,3 @@ const RepositoryInfo = ({ repo }) => {
     </View>
   );
 };
-
-export default RepositoryInfo;

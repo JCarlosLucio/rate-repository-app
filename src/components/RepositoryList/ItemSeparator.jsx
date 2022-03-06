@@ -6,8 +6,6 @@ const styles = StyleSheet.create({
   },
 });
 
-const ItemSeparator = () => {
+export const ItemSeparator = () => {
   return <View style={styles.separator} />;
 };
-
-export default ItemSeparator;

@@ -1,9 +1,9 @@
 import { FlatList } from 'react-native';
-import useRepositories from '../hooks/useRepositories';
-import ItemSeparator from './ItemSeparator';
-import RepositoryItem from './RepositoryItem';
+import useRepositories from '../../hooks/useRepositories';
+import { ItemSeparator } from './ItemSeparator';
+import { RepositoryItem } from './RepositoryItem';
 
-const RepositoryList = () => {
+export const RepositoryList = () => {
   const { repositories } = useRepositories();
 
   // Get the nodes from the edges array
@@ -20,5 +20,3 @@ const RepositoryList = () => {
     />
   );
 };
-
-export default RepositoryList;
