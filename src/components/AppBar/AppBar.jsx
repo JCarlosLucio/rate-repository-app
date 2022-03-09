@@ -1,7 +1,10 @@
 import { View, StyleSheet, ScrollView } from 'react-native';
+import { useApolloClient } from '@apollo/client';
 import Constants from 'expo-constants';
 import { AppBarTab } from './AppBarTab';
 import theme from '../../theme';
+import useMe from '../../hooks/useMe';
+import useAuthStorage from '../../hooks/useAuthStorage';
 
 const styles = StyleSheet.create({
   container: {
@@ -14,11 +17,26 @@ const styles = StyleSheet.create({
 });
 
 export const AppBar = () => {
+  const { me } = useMe();
+  const authStorage = useAuthStorage();
+  const apolloClient = useApolloClient();
+
+  const signOut = async () => {
+    await authStorage.removeAccessToken();
+    apolloClient.resetStore();
+  };
+
   return (
     <View style={styles.container}>
       <ScrollView horizontal>
         <AppBarTab to="/">Repositories</AppBarTab>
-        <AppBarTab to="/signin">Sign in</AppBarTab>
+        {me ? (
+          <AppBarTab to="/signin" onPress={signOut}>
+            Sign out
+          </AppBarTab>
+        ) : (
+          <AppBarTab to="/signin">Sign in</AppBarTab>
+        )}
       </ScrollView>
     </View>
   );

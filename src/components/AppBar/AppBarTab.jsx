@@ -12,9 +12,9 @@ const styles = StyleSheet.create({
   },
 });
 
-export const AppBarTab = ({ to, children }) => {
+export const AppBarTab = ({ to, onPress, children }) => {
   return (
-    <Link to={to} style={styles.container}>
+    <Link to={to} style={styles.container} onPress={onPress}>
       <Subheading style={styles.text}>{children}</Subheading>
     </Link>
   );
