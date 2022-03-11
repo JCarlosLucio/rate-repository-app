@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
 
 export const RepositoryItem = ({ item }) => {
   return (
-    <View style={styles.container}>
+    <View style={styles.container} testID="repositoryItem">
       <RepositoryInfo repo={item} />
       <RepositoryStats repo={item} />
     </View>

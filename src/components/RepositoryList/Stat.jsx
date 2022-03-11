@@ -1,5 +1,5 @@
 import { StyleSheet, View } from 'react-native';
-import formatStat from '../../utils/formatStats';
+import formatStat from '../../utils/formatStat';
 import { Text } from '../shared';
 
 const styles = StyleSheet.create({

@@ -5,7 +5,12 @@ module.exports = {
       version: 'detect',
     },
   },
-  extends: ['eslint:recommended', 'plugin:react/recommended'],
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:jest/recommended',
+    'prettier',
+  ],
   parser: '@babel/eslint-parser',
   env: {
     'react-native/react-native': true,
