@@ -11,5 +11,13 @@ export const REPOSITORY_DETAILS = gql`
     forksCount
     reviewCount
     ratingAverage
+    url
+  }
+`;
+
+export const USER_DETAILS = gql`
+  fragment UserDetails on User {
+    id
+    username
   }
 `;

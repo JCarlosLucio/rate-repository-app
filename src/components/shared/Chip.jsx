@@ -1,6 +1,6 @@
 import { View, StyleSheet } from 'react-native';
 import theme from '../../theme';
-import { Text } from '../shared';
+import { Text } from './Text';
 
 const styles = StyleSheet.create({
   container: {

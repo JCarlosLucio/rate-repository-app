@@ -25,7 +25,8 @@
     "react-native": "0.64.3",
     "react-native-web": "0.17.1",
     "react-router-native": "^6.2.2",
-    "yup": "^0.32.11"
+    "yup": "^0.32.11",
+    "expo-linking": "~3.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
@@ -41,7 +42,7 @@
     "jest": "^27.5.1",
     "jest-expo": "^44.0.1",
     "prettier": "^2.5.1",
-    "react-test-renderer": "^17.0.1"
+    "react-test-renderer": "17.0.1"
   },
   "private": true,
   "jest": {
