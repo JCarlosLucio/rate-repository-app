@@ -1,6 +1,5 @@
 import { FlatList, Pressable } from 'react-native';
-import { RepositoryItem } from '../shared';
-import { ItemSeparator } from './ItemSeparator';
+import { ItemSeparator, RepositoryItem } from '../shared';
 
 export const RepositoryListContainer = ({ repositories, goTo }) => {
   // Get the nodes from the edges array
@@ -10,7 +9,7 @@ export const RepositoryListContainer = ({ repositories, goTo }) => {
 
   const renderItem = ({ item }) => (
     <Pressable onPress={() => goTo(item.id)}>
-      <RepositoryItem item={item} />
+      <RepositoryItem repository={item} />
     </Pressable>
   );
 

@@ -24,6 +24,8 @@ const styles = StyleSheet.create({
     display: 'flex',
     alignItems: 'flex-start',
     paddingLeft: 16,
+    flex: 1,
+    flexWrap: 'wrap',
   },
   info: {
     display: 'flex',
@@ -41,29 +43,34 @@ const styles = StyleSheet.create({
   },
 });
 
-export const RepositoryItem = ({ item, single }) => {
+export const RepositoryItem = ({ repository, single }) => {
   return (
     <View style={styles.container} testID="repositoryItem">
       <View style={styles.info}>
-        <Image style={styles.avatar} source={{ uri: item.ownerAvatarUrl }} />
+        <Image
+          style={styles.avatar}
+          source={{ uri: repository.ownerAvatarUrl }}
+        />
         <View style={styles.details}>
-          <Subheading style={styles.padBottom}>{item.fullName}</Subheading>
+          <Subheading style={styles.padBottom}>
+            {repository.fullName}
+          </Subheading>
           <Text style={styles.padBottom} color="textSecondary">
-            {item.description}
+            {repository.description}
           </Text>
-          <Chip label={item.language} />
+          <Chip label={repository.language} />
         </View>
       </View>
       <View style={styles.stats}>
-        <Stat label="Stars" stat={item.stargazersCount} />
-        <Stat label="Forks" stat={item.forksCount} />
-        <Stat label="Reviews" stat={item.reviewCount} />
-        <Stat label="Rating" stat={item.ratingAverage} />
+        <Stat label="Stars" stat={repository.stargazersCount} />
+        <Stat label="Forks" stat={repository.forksCount} />
+        <Stat label="Reviews" stat={repository.reviewCount} />
+        <Stat label="Rating" stat={repository.ratingAverage} />
       </View>
       {single && (
         <Button
           label="Open in GitHub"
-          onPress={() => Linking.openURL(item.url)}
+          onPress={() => Linking.openURL(repository.url)}
           style={styles.button}
         />
       )}

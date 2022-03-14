@@ -1,5 +1,6 @@
 export * from './Button';
 export * from './Chip';
+export * from './ItemSeparator';
 export * from './RepositoryItem';
 export * from './Stat';
 export * from './Subheading';

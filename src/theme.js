@@ -5,7 +5,7 @@ const theme = {
     textPrimary: '#fff',
     textSecondary: '#949D9D',
     textAppBar: '#fff',
-    primary: '#6e02c9',
+    primary: '#543dff',
     bgPrimary: '#161925',
     bgSecondary: '#181c28',
     bgAppBar: '#0c0e14',
@@ -15,6 +15,7 @@ const theme = {
   fontSizes: {
     body: 14,
     subheading: 16,
+    heading: 20,
   },
   fonts: {
     main: Platform.select({
