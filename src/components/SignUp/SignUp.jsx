@@ -1,10 +1,10 @@
 import { useNavigate } from 'react-router-native';
 import { useSnackbar } from '../../contexts/SnackbarContext';
-import useSignIn from '../../hooks/useSignIn';
-import { SignInContainer } from './SignInContainer';
+import useCreateUser from '../../hooks/useCreateUser';
+import { SignUpContainer } from './SignUpContainer';
 
-export const SignIn = () => {
-  const [signIn] = useSignIn();
+export function SignUp() {
+  const [createUser] = useCreateUser();
   const navigate = useNavigate();
   const { setSnackbar } = useSnackbar();
 
@@ -12,14 +12,14 @@ export const SignIn = () => {
     const { username, password } = values;
 
     try {
-      await signIn({ username, password });
+      await createUser({ username, password });
       navigate('/', { replace: true });
-      setSnackbar({ message: `Welcome back, ${username}!`, type: 'success' });
+      setSnackbar({ message: `Welcome, ${username}!`, type: 'success' });
     } catch (e) {
       console.log(e);
       setSnackbar({ message: e?.message, type: 'error' });
     }
   };
 
-  return <SignInContainer onSubmit={onSubmit} />;
-};
+  return <SignUpContainer onSubmit={onSubmit} />;
+}

@@ -5,8 +5,8 @@ import { CreateReviewContainer } from './CreateReviewContainer';
 
 export const CreateReview = () => {
   const [createReview] = useCreateReview();
-  const { setSnackbar } = useSnackbar();
   const navigate = useNavigate();
+  const { setSnackbar } = useSnackbar();
 
   const onSubmit = async (values) => {
     try {
@@ -14,9 +14,8 @@ export const CreateReview = () => {
       navigate(`/${repositoryId}`);
       setSnackbar({ message: 'Created successfully', type: 'success' });
     } catch (e) {
-      console.log('ERROR', JSON.stringify(e));
-      const message = e?.message;
-      setSnackbar({ message, type: 'error' });
+      console.log(e);
+      setSnackbar({ message: e?.message, type: 'error' });
     }
   };
 
