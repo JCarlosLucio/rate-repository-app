@@ -31,9 +31,12 @@ export const AppBar = () => {
       <ScrollView horizontal>
         <AppBarTab to="/">Repositories</AppBarTab>
         {me ? (
-          <AppBarTab to="/signin" onPress={signOut}>
-            Sign out
-          </AppBarTab>
+          <>
+            <AppBarTab to="/createReview">Create a Review</AppBarTab>
+            <AppBarTab to="/signin" onPress={signOut}>
+              Sign out
+            </AppBarTab>
+          </>
         ) : (
           <AppBarTab to="/signin">Sign in</AppBarTab>
         )}

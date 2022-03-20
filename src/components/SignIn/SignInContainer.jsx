@@ -1,8 +1,7 @@
 import { Formik } from 'formik';
 import { StyleSheet, View } from 'react-native';
 import * as yup from 'yup';
-import { FormikTextInput } from './FormikTextInput';
-import { Button } from '../shared';
+import { Button, FormikTextInput } from '../shared';
 
 const styles = StyleSheet.create({
   container: {

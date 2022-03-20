@@ -15,10 +15,18 @@ const styles = StyleSheet.create({
     color: theme.colors.error,
     borderColor: theme.colors.error,
   },
+  multiline: {
+    textAlignVertical: 'top',
+  },
 });
 
-export const TextInput = ({ style, error, ...props }) => {
-  const textInputStyle = [styles.input, error && styles.error, style];
+export const TextInput = ({ style, error, multiline, ...props }) => {
+  const textInputStyle = [
+    styles.input,
+    error && styles.error,
+    multiline && styles.multiline,
+    style,
+  ];
 
   return (
     <NativeTextInput

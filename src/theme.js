@@ -11,6 +11,9 @@ const theme = {
     bgAppBar: '#0c0e14',
     separator: '#e1e5e8',
     error: '#d73a4a',
+    warn: '#CC9A06',
+    success: '#13795B',
+    info: '#0A58CA',
   },
   fontSizes: {
     body: 14,
