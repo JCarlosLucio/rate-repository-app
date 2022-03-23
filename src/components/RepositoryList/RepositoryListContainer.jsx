@@ -1,33 +1,46 @@
+import { Component } from 'react';
 import { FlatList, Pressable } from 'react-native';
-import { useNavigate } from 'react-router-native';
 import { ItemSeparator, RepositoryItem } from '../shared';
 import { OrderPicker } from './OrderPicker';
+import { Searchbar } from './Searchbar';
 
-export const RepositoryListContainer = ({ repositories, order, setOrder }) => {
-  const navigate = useNavigate();
+export class RepositoryListContainer extends Component {
+  renderHeader = () => {
+    const { order, setOrder, searchText, setSearchText } = this.props;
+    const handleValueChange = (itemValue) => setOrder(itemValue);
 
-  // Get the nodes from the edges array
-  const repositoryNodes = repositories
-    ? repositories.edges.map((edge) => edge.node)
-    : [];
+    return (
+      <>
+        <Searchbar value={searchText} onChangeText={setSearchText} />
+        <OrderPicker selectedValue={order} onValueChange={handleValueChange} />
+      </>
+    );
+  };
 
-  const handleValueChange = (itemValue) => setOrder(itemValue);
+  renderRepo = ({ item }) => {
+    const { goTo } = this.props;
 
-  const renderRepo = ({ item }) => (
-    <Pressable onPress={() => navigate(item.id)}>
-      <RepositoryItem repository={item} />
-    </Pressable>
-  );
+    return (
+      <Pressable onPress={() => goTo(item.id)}>
+        <RepositoryItem repository={item} />
+      </Pressable>
+    );
+  };
 
-  return (
-    <>
-      <OrderPicker selectedValue={order} onValueChange={handleValueChange} />
+  render() {
+    const { repositories } = this.props;
+    const repositoryNodes = repositories
+      ? repositories.edges.map((edge) => edge.node)
+      : [];
+
+    return (
       <FlatList
         data={repositoryNodes}
         ItemSeparatorComponent={ItemSeparator}
-        renderItem={renderRepo}
+        ListHeaderComponent={this.renderHeader}
+        renderItem={this.renderRepo}
         keyExtractor={(item) => item.id}
       />
-    </>
-  );
-};
+    );
+  }
+}

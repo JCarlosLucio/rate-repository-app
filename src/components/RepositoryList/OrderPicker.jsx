@@ -5,7 +5,7 @@ import theme from '../../theme';
 const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 16,
-    paddingBottom: 10,
+    paddingBottom: 5,
   },
   picker: {
     backgroundColor: theme.colors.bgPrimary,
