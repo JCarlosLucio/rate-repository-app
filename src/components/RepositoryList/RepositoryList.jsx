@@ -5,9 +5,9 @@ import useRepositories from '../../hooks/useRepositories';
 import { RepositoryListContainer } from './RepositoryListContainer';
 
 const orderValues = {
-  latest: { by: 'CREATED_AT', direction: 'DESC' },
-  highest: { by: 'RATING_AVERAGE', direction: 'DESC' },
-  lowest: { by: 'RATING_AVERAGE', direction: 'ASC' },
+  latest: { orderBy: 'CREATED_AT', orderDirection: 'DESC' },
+  highest: { orderBy: 'RATING_AVERAGE', orderDirection: 'DESC' },
+  lowest: { orderBy: 'RATING_AVERAGE', orderDirection: 'ASC' },
 };
 
 export const RepositoryList = () => {
@@ -15,13 +15,17 @@ export const RepositoryList = () => {
   const [order, setOrder] = useState('latest');
   const [searchText, setSearchText] = useState('');
   const [searchKeyword] = useDebounce(searchText, 1000);
-  const { repositories } = useRepositories(
-    orderValues[order].by,
-    orderValues[order].direction,
-    searchKeyword
-  );
+  const { repositories, fetchMore } = useRepositories({
+    ...orderValues[order],
+    searchKeyword,
+    first: 8,
+  });
 
   const goTo = (repositoryId) => navigate(`/${repositoryId}`);
+
+  const onEndReach = () => {
+    fetchMore();
+  };
 
   return (
     <RepositoryListContainer
@@ -29,6 +33,7 @@ export const RepositoryList = () => {
       goTo={goTo}
       order={order}
       setOrder={setOrder}
+      onEndReach={onEndReach}
       searchText={searchText}
       setSearchText={setSearchText}
     />

@@ -28,7 +28,7 @@ export class RepositoryListContainer extends Component {
   };
 
   render() {
-    const { repositories } = this.props;
+    const { repositories, onEndReach } = this.props;
     const repositoryNodes = repositories
       ? repositories.edges.map((edge) => edge.node)
       : [];
@@ -40,6 +40,8 @@ export class RepositoryListContainer extends Component {
         ListHeaderComponent={this.renderHeader}
         renderItem={this.renderRepo}
         keyExtractor={(item) => item.id}
+        onEndReached={onEndReach}
+        onEndReachedThreshold={0.5}
       />
     );
   }

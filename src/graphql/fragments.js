@@ -34,3 +34,11 @@ export const REVIEW_DETAILS = gql`
   }
   ${USER_DETAILS}
 `;
+
+export const PAGE_INFO_DETAILS = gql`
+  fragment PageInfoDetails on PageInfo {
+    hasNextPage
+    startCursor
+    endCursor
+  }
+`;
