@@ -4,7 +4,7 @@ import useSignIn from '../../hooks/useSignIn';
 import { SignInContainer } from './SignInContainer';
 
 export const SignIn = () => {
-  const [signIn] = useSignIn();
+  const [signIn, { loading }] = useSignIn();
   const navigate = useNavigate();
   const { setSnackbar } = useSnackbar();
 
@@ -21,5 +21,5 @@ export const SignIn = () => {
     }
   };
 
-  return <SignInContainer onSubmit={onSubmit} />;
+  return <SignInContainer onSubmit={onSubmit} loading={loading} />;
 };

@@ -33,6 +33,7 @@ export const AppBar = () => {
         {me ? (
           <>
             <AppBarTab to="/createReview">Create a Review</AppBarTab>
+            <AppBarTab to="/myReviews">My Reviews</AppBarTab>
             <AppBarTab to="/signin" onPress={signOut}>
               Sign out
             </AppBarTab>

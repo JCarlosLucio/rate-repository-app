@@ -21,7 +21,7 @@ const validationSchema = yup.object().shape({
   text: yup.string().optional(),
 });
 
-export const CreateReviewContainer = ({ onSubmit }) => {
+export const CreateReviewContainer = ({ onSubmit, loading }) => {
   return (
     <View style={styles.container}>
       <Formik
@@ -62,6 +62,7 @@ export const CreateReviewContainer = ({ onSubmit }) => {
             />
             <Button
               label="Create a review"
+              loading={loading}
               testID="createReview"
               onPress={handleSubmit}
             />

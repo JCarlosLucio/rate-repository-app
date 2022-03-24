@@ -1,7 +1,6 @@
 // import { Component } from 'react';
 import { FlatList } from 'react-native';
-import { ItemSeparator, RepositoryItem } from '../shared';
-import { ReviewItem } from './ReviewItem';
+import { ItemSeparator, RepositoryItem, ReviewItem } from '../shared';
 
 export function SingleRepositoryContainer({ repository, onEndReach }) {
   const renderHeader = () => (

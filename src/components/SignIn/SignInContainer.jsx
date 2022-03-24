@@ -14,7 +14,7 @@ const validationSchema = yup.object().shape({
   password: yup.string().required('Password is required'),
 });
 
-export const SignInContainer = ({ onSubmit }) => {
+export const SignInContainer = ({ onSubmit, loading }) => {
   return (
     <View style={styles.container}>
       <Formik
@@ -36,7 +36,12 @@ export const SignInContainer = ({ onSubmit }) => {
               placeholder="Password"
               secureTextEntry
             />
-            <Button label="Sign In" onPress={handleSubmit} testID="signIn" />
+            <Button
+              label="Sign In"
+              onPress={handleSubmit}
+              testID="signIn"
+              loading={loading}
+            />
           </>
         )}
       </Formik>

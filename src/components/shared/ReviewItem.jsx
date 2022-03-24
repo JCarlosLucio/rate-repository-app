@@ -1,7 +1,8 @@
 import { StyleSheet, View } from 'react-native';
 import theme from '../../theme';
 import formatDate from '../../utils/formatDate';
-import { Subheading, Text } from '../shared';
+import { Subheading } from './Subheading';
+import { Text } from './Text';
 
 const styles = StyleSheet.create({
   container: {
@@ -34,7 +35,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export const ReviewItem = ({ review }) => {
+export const ReviewItem = ({ review, inMyReviews }) => {
   return (
     <View style={styles.container} testID="reviewItem">
       <View style={styles.rating}>
@@ -43,7 +44,9 @@ export const ReviewItem = ({ review }) => {
         </Text>
       </View>
       <View style={styles.review}>
-        <Subheading>{review.user.username}</Subheading>
+        <Subheading>
+          {inMyReviews ? review.repository.fullName : review.user.username}
+        </Subheading>
         <Text style={styles.date} color="textSecondary">
           {formatDate(review.createdAt)}
         </Text>

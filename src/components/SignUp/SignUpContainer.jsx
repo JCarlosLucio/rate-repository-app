@@ -26,7 +26,7 @@ const validationSchema = yup.object().shape({
     .required('Password confirmation is required'),
 });
 
-export function SignUpContainer({ onSubmit }) {
+export function SignUpContainer({ onSubmit, loading }) {
   return (
     <View style={styles.container}>
       <Formik
@@ -55,7 +55,12 @@ export function SignUpContainer({ onSubmit }) {
               placeholder="Password confirmation"
               secureTextEntry
             />
-            <Button label="Sign Up" onPress={handleSubmit} testID="signUp" />
+            <Button
+              label="Sign Up"
+              onPress={handleSubmit}
+              testID="signUp"
+              loading={loading}
+            />
           </>
         )}
       </Formik>

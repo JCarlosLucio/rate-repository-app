@@ -3,6 +3,7 @@ export * from './Chip';
 export * from './FormikTextInput';
 export * from './ItemSeparator';
 export * from './RepositoryItem';
+export * from './ReviewItem';
 export * from './Snackbar';
 export * from './Stat';
 export * from './Subheading';

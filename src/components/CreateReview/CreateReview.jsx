@@ -4,7 +4,7 @@ import useCreateReview from '../../hooks/useCreateReview';
 import { CreateReviewContainer } from './CreateReviewContainer';
 
 export const CreateReview = () => {
-  const [createReview] = useCreateReview();
+  const [createReview, { loading }] = useCreateReview();
   const navigate = useNavigate();
   const { setSnackbar } = useSnackbar();
 
@@ -19,5 +19,5 @@ export const CreateReview = () => {
     }
   };
 
-  return <CreateReviewContainer onSubmit={onSubmit} />;
+  return <CreateReviewContainer onSubmit={onSubmit} loading={loading} />;
 };

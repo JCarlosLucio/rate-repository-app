@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet } from 'react-native';
+import { ActivityIndicator, Pressable, StyleSheet } from 'react-native';
 import theme from '../../theme';
 import { Text } from './Text';
 
@@ -12,14 +12,18 @@ const styles = StyleSheet.create({
   },
 });
 
-export const Button = ({ label, onPress, style, ...props }) => {
+export const Button = ({ label, onPress, style, loading, ...props }) => {
   const buttonStyle = [styles.button, style];
 
   return (
     <Pressable style={buttonStyle} onPress={onPress} {...props}>
-      <Text fontSize="subheading" fontWeight="bold">
-        {label}
-      </Text>
+      {loading ? (
+        <ActivityIndicator size="small" color={theme.colors.textPrimary} />
+      ) : (
+        <Text fontSize="subheading" fontWeight="bold">
+          {label}
+        </Text>
+      )}
     </Pressable>
   );
 };

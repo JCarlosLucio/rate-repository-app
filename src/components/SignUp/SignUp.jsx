@@ -4,7 +4,7 @@ import useCreateUser from '../../hooks/useCreateUser';
 import { SignUpContainer } from './SignUpContainer';
 
 export function SignUp() {
-  const [createUser] = useCreateUser();
+  const [createUser, { loading }] = useCreateUser();
   const navigate = useNavigate();
   const { setSnackbar } = useSnackbar();
 
@@ -21,5 +21,5 @@ export function SignUp() {
     }
   };
 
-  return <SignUpContainer onSubmit={onSubmit} />;
+  return <SignUpContainer onSubmit={onSubmit} loading={loading} />;
 }

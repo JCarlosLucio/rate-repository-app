@@ -5,11 +5,9 @@ import { TextInput } from '../shared';
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: 16,
-    paddingTop: 16,
-    paddingBottom: 5,
-  },
-  searchbarContainer: {
+    marginHorizontal: 16,
+    marginTop: 16,
+    marginBottom: 5,
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
@@ -37,29 +35,27 @@ export const Searchbar = ({ value, onChangeText, ...props }) => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.searchbarContainer}>
-        <Ionicons
-          name="search"
-          size={theme.iconSizes.md}
-          color={theme.colors.textPrimary}
-        />
-        <TextInput
-          style={styles.searchbar}
-          placeholder="Search repositories..."
-          value={value}
-          onChangeText={onChangeText}
-          {...props}
-        />
-        {!!value && (
-          <Pressable onPress={reset}>
-            <Ionicons
-              name="close"
-              size={theme.iconSizes.md}
-              color={theme.colors.textPrimary}
-            />
-          </Pressable>
-        )}
-      </View>
+      <Ionicons
+        name="search"
+        size={theme.iconSizes.md}
+        color={theme.colors.textPrimary}
+      />
+      <TextInput
+        style={styles.searchbar}
+        placeholder="Search repositories..."
+        value={value}
+        onChangeText={onChangeText}
+        {...props}
+      />
+      {!!value && (
+        <Pressable onPress={reset}>
+          <Ionicons
+            name="close"
+            size={theme.iconSizes.md}
+            color={theme.colors.textPrimary}
+          />
+        </Pressable>
+      )}
     </View>
   );
 };
