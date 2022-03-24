@@ -1,27 +1,22 @@
-import { FlatList } from 'react-native';
 import { useParams } from 'react-router-native';
 import useRepository from '../../hooks/useRepository';
-import { ItemSeparator, RepositoryItem } from '../shared';
-import { ReviewItem } from './ReviewItem';
+import { SingleRepositoryContainer } from './SingleRepositoryContainer';
 
 export function SingleRepository() {
   const { repositoryId } = useParams();
-  const { repository, loading } = useRepository(repositoryId);
+  const { repository, fetchMore } = useRepository({
+    repositoryId,
+    first: 5,
+  });
 
-  if (loading) return null;
-
-  const reviews = repository?.reviews?.edges?.map((edge) => edge.node) ?? [];
-
-  const renderItem = ({ item }) => <ReviewItem review={item} />;
-  const renderHeader = () => <RepositoryItem repository={repository} single />;
+  const onEndReach = () => {
+    fetchMore();
+  };
 
   return (
-    <FlatList
-      data={reviews}
-      ItemSeparatorComponent={ItemSeparator}
-      renderItem={renderItem}
-      keyExtractor={({ id }) => id}
-      ListHeaderComponent={renderHeader}
+    <SingleRepositoryContainer
+      repository={repository}
+      onEndReach={onEndReach}
     />
   );
 }

@@ -29,9 +29,7 @@ export class RepositoryListContainer extends Component {
 
   render() {
     const { repositories, onEndReach } = this.props;
-    const repositoryNodes = repositories
-      ? repositories.edges.map((edge) => edge.node)
-      : [];
+    const repositoryNodes = repositories?.edges.map((edge) => edge.node) ?? [];
 
     return (
       <FlatList

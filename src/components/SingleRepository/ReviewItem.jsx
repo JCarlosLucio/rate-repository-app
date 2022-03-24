@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
 
 export const ReviewItem = ({ review }) => {
   return (
-    <View style={styles.container}>
+    <View style={styles.container} testID="reviewItem">
       <View style={styles.rating}>
         <Text color="primary" fontSize="heading" fontWeight="bold">
           {review.rating}
