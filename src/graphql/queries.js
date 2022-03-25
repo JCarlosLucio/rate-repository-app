@@ -63,9 +63,6 @@ export const GET_ME = gql`
       reviews(first: $first, after: $after) @include(if: $includeReviews) {
         edges {
           node {
-            repository {
-              fullName
-            }
             ...ReviewDetails
           }
         }

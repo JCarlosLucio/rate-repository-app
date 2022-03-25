@@ -31,6 +31,10 @@ export const REVIEW_DETAILS = gql`
     user {
       ...UserDetails
     }
+    repository {
+      id
+      fullName
+    }
   }
   ${USER_DETAILS}
 `;
